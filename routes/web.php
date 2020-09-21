@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-})->name('welcome');
+Route::get('{any}', function () {
+    return view('layouts.app');
+})->where('any', '.*');
+
 
 Auth::routes();
 
