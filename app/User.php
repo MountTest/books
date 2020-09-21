@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends \TCG\Voyager\Models\User
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -36,8 +36,4 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function purchases() {
-        return $this->hasMany(Purchase::class);
-    }
 }
